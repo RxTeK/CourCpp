@@ -3,4 +3,13 @@
 #include "TestCpp.h"
 #include "Modules/ModuleManager.h"
 
-IMPLEMENT_PRIMARY_GAME_MODULE( FDefaultGameModuleImpl, TestCpp, "TestCpp" );
+class FTestCppModule final : public FDefaultGameModuleImpl
+{
+public:
+	virtual void StartupModule() override
+	{
+		UE_LOG(LogTemp, Log, TEXT("Hello World"));
+	}
+};
+
+IMPLEMENT_PRIMARY_GAME_MODULE(FTestCppModule, TestCpp, "TestCpp");
